@@ -1,5 +1,7 @@
 #include "IndicePrimario.h"
 
+using namespace std;
+
 IndicePrimario::IndicePrimario() : matricula(0), byte_offset(0) {}
 
 IndicePrimario::IndicePrimario(int mat, long offset) 
@@ -11,12 +13,12 @@ long IndicePrimario::getByteOffset() const { return byte_offset; }
 void IndicePrimario::setMatricula(int mat) { matricula = mat; }
 void IndicePrimario::setByteOffset(long offset) { byte_offset = offset; }
 
-void IndicePrimario::serializar(std::ofstream& out) const {
+void IndicePrimario::serializar(ostream& out) const {
     out.write(reinterpret_cast<const char*>(&matricula), sizeof(matricula));
     out.write(reinterpret_cast<const char*>(&byte_offset), sizeof(byte_offset));
 }
 
-void IndicePrimario::desserializar(std::ifstream& in) {
+void IndicePrimario::desserializar(istream& in) {
     in.read(reinterpret_cast<char*>(&matricula), sizeof(matricula));
     in.read(reinterpret_cast<char*>(&byte_offset), sizeof(byte_offset));
 }
