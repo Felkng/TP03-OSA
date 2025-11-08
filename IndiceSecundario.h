@@ -4,6 +4,8 @@
 #include <string>
 #include <fstream>
 
+using namespace std;
+
 // Estrutura de um nó da lista invertida
 class NoListaInvertida {
 private:
@@ -20,8 +22,8 @@ public:
     void setMatricula(int mat);
     void setProximoRRN(long prox);
     
-    void serializar(std::ofstream& out) const;
-    void desserializar(std::ifstream& in);
+    void serializar(ostream& out) const;
+    void desserializar(istream& in);
     
     static size_t tamanhoRegistro();
 };
@@ -34,16 +36,16 @@ private:
 
 public:
     IndiceSecundario();
-    IndiceSecundario(const std::string& cur, long rrn);
+    IndiceSecundario(const string& cur, long rrn);
     
-    std::string getCurso() const;
+    string getCurso() const;
     long getPrimeiroRRN() const;
     
-    void setCurso(const std::string& cur);
+    void setCurso(const string& cur);
     void setPrimeiroRRN(long rrn);
     
-    void serializar(std::ofstream& out) const;
-    void desserializar(std::ifstream& in);
+    void serializar(ofstream& out) const;
+    void desserializar(ifstream& in);
 };
 
 #endif
